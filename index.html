@@ -3,17 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avinash Kumar | Founder &amp; Product Architect — TapToTravel</title>
-  <meta name="description" content="Official portfolio of Avinash Kumar, Founder of TapToTravel — India's 1st NFC tap-to-board smart mobility platform. AI · IoT · GPS · Flutter." />
-  <meta name="keywords" content="Avinash Kumar, TapToTravel, Founder, Smart Mobility, NFC, Flutter Developer, IoT, AI, Gorakhpur" />
-  <meta property="og:title" content="Avinash Kumar | Founder &amp; Product Architect — TapToTravel" />
-  <meta property="og:description" content="Building India's Smart Mobility Future. Founder of TapToTravel — India's 1st NFC tap-to-board mobility platform." />
+
+  <!-- ═══ PRIMARY SEO ═══ -->
+  <title>Avinash Kumar — Founder, TapToTravel | Builder of Smart Mobility Systems</title>
+  <meta name="description" content="Avinash Kumar is the Founder of TapToTravel — India's first NFC tap-to-board smart mobility platform. Full-stack builder working across Flutter, IoT hardware, AI, and cloud infrastructure." />
+  <meta name="keywords" content="Avinash Kumar, TapToTravel, Founder TapToTravel, Smart Mobility India, NFC Mobility, Flutter Developer, IoT Builder, AI Developer, Gorakhpur, AKTU, Full Stack Developer" />
+  <meta name="author" content="Avinash Kumar" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://avinashkumar.online" />
+  <meta name="theme-color" content="#04342C" />
+
+  <!-- ═══ OPEN GRAPH (LinkedIn / Facebook) ═══ -->
+  <meta property="og:title" content="Avinash Kumar — Founder, TapToTravel" />
+  <meta property="og:description" content="Full-stack builder designing real-world systems combining software, AI, and hardware. Founder of TapToTravel — India's 1st NFC tap-to-board mobility platform." />
   <meta property="og:url" content="https://avinashkumar.online" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="profile" />
   <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="Avinash Kumar" />
+  <meta property="og:image" content="https://avinashkumar.online/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Avinash Kumar — Founder, TapToTravel" />
+  <meta property="profile:first_name" content="Avinash" />
+  <meta property="profile:last_name" content="Kumar" />
+
+  <!-- ═══ TWITTER CARDS ═══ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Avinash Kumar — Founder, TapToTravel" />
+  <meta name="twitter:description" content="Building real-world systems combining software, AI, and hardware. Founder of India's 1st NFC smart mobility platform." />
+  <meta name="twitter:image" content="https://avinashkumar.online/og-image.png" />
+
+  <!-- ═══ FAVICON & ICONS ═══ -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <!-- ═══ PRELOAD CRITICAL ASSETS ═══ -->
+  <link rel="preload" as="image" href="/avinash-photo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ═══ JSON-LD STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateCreated": "2024-02-01",
+    "dateModified": "2026-04-15",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Avinash Kumar",
+      "givenName": "Avinash",
+      "familyName": "Kumar",
+      "jobTitle": "Founder",
+      "url": "https://avinashkumar.online",
+      "image": "https://avinashkumar.online/avinash-photo.jpg",
+      "email": "hello@avinashkumar.online",
+      "description": "Full-stack builder focused on designing real-world systems combining software, AI, and hardware. Founder of TapToTravel.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TapToTravel",
+        "url": "https://taptotravel.co.in",
+        "description": "India's first NFC tap-to-board smart mobility platform"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/avinash-kumar-4a555b231",
+        "https://github.com/Avinash88088"
+      ],
+      "knowsAbout": ["Flutter", "Dart", "IoT", "NFC", "RFID", "ESP32", "Firebase", "Cloud Functions", "Node.js", "AI", "Machine Learning", "Smart Mobility", "GPS Tracking"]
+    }
+  }
+  </script>
   <style>
     /* ═══════════════════════════════════════════════════
        CSS RESET & VARIABLES
@@ -185,7 +249,47 @@
       background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
       background-size: 40px 40px;
     }
-    .hero-content { position: relative; z-index: 2; padding-top: 120px; padding-bottom: 80px; }
+    .hero-content { position: relative; z-index: 2; padding-top: 120px; padding-bottom: 80px; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+    .hero-text { flex: 1; min-width: 0; }
+    /* Hero Photo with 3D glow */
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      position: relative;
+    }
+    .hero-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 4px solid rgba(46, 204, 113, 0.4);
+      box-shadow: 0 0 40px rgba(46, 204, 113, 0.2), 0 0 80px rgba(46, 204, 113, 0.1), 0 20px 60px rgba(0,0,0,0.3);
+      animation: photo-glow 4s ease-in-out infinite alternate;
+    }
+    @keyframes photo-glow {
+      0% { box-shadow: 0 0 30px rgba(46, 204, 113, 0.15), 0 0 60px rgba(46, 204, 113, 0.08), 0 20px 60px rgba(0,0,0,0.3); }
+      100% { box-shadow: 0 0 50px rgba(46, 204, 113, 0.3), 0 0 100px rgba(46, 204, 113, 0.15), 0 20px 60px rgba(0,0,0,0.3); }
+    }
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.2);
+      border-radius: 999px;
+      color: var(--green-accent);
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      background: var(--green-accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
     .hero-tag {
       display: inline-block;
       padding: 6px 16px;
@@ -567,17 +671,47 @@
     ═══════════════════════════════════════════════════ */
     .site-footer {
       background: var(--green-dark);
-      padding: 28px 0;
+      padding: 36px 0;
       text-align: center;
       color: rgba(255,255,255,0.4);
       font-size: 0.85rem;
     }
     .site-footer a { color: var(--green-accent); }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .footer-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+    .footer-socials a:hover {
+      background: var(--green-accent);
+      color: var(--green-dark);
+      border-color: var(--green-accent);
+      transform: translateY(-3px);
+    }
 
     /* ═══════════════════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════════════════ */
     @media (max-width: 900px) {
+      .hero-content { flex-direction: column-reverse; text-align: center; gap: 40px; }
+      .hero-photo { width: 200px; height: 200px; }
+      .hero-buttons { justify-content: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .status-badge { margin-left: auto; margin-right: auto; }
       .stat-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .project-featured { padding: 32px; }
@@ -600,7 +734,8 @@
       .hamburger { display: flex; }
       .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .stat-card { padding: 20px 16px; }
-      .hero-content { padding-top: 100px; padding-bottom: 60px; }
+      .hero-content { padding-top: 100px; padding-bottom: 60px; flex-direction: column-reverse; }
+      .hero-photo { width: 160px; height: 160px; }
       .hero-buttons { flex-direction: column; }
       .btn { justify-content: center; }
       .hero-name { letter-spacing: -0.5px; }
@@ -640,20 +775,27 @@
       <div class="nfc-wave"></div>
     </div>
     <div class="container hero-content">
-      <span class="hero-tag">Founder &amp; CEO</span>
-      <h1 class="hero-name">Avinash Kumar</h1>
-      <p class="hero-subtitle">Building India's Smart Mobility Future</p>
-      <p class="hero-desc">
-        Founder of <strong>TapToTravel</strong> — India's 1st NFC tap-to-board smart mobility platform.
-        AI · IoT · GPS · Flutter
-      </p>
-      <div class="hero-buttons">
-        <a href="https://taptotravel.co.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-          View TapToTravel →
-        </a>
-        <a href="#contact" class="btn btn-secondary">
-          Download Resume
-        </a>
+      <div class="hero-text">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Building in public
+        </div>
+        <span class="hero-tag">Founder &amp; Builder</span>
+        <h1 class="hero-name">Avinash Kumar</h1>
+        <p class="hero-desc">
+          I design and build real-world systems combining software, AI, and hardware — focused on solving mobility and infrastructure problems.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://taptotravel.co.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            View TapToTravel →
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="/avinash-photo.jpg" alt="Avinash Kumar — Founder of TapToTravel" class="hero-photo" width="280" height="280" loading="eager" />
       </div>
     </div>
   </section>
@@ -665,11 +807,15 @@
         <span class="section-label">About Me</span>
         <h2 class="section-title">A Builder at Heart</h2>
         <p class="about-text">
-          I'm a <strong>MCA graduate from AKTU Lucknow</strong>, specializing in AI, ML &amp; IoT.
-          I completed my BCA from <strong>DDU Gorakhpur University</strong>. Since <strong>February 2024</strong>,
-          I've been building TapToTravel — turning the messy world of public transport into something smart,
-          trackable, and fair. From soldering NFC hardware to deploying Flutter apps and Cloud Functions,
-          I work across every layer of the stack.
+          I'm a developer focused on building scalable, real-world systems.
+          From mobile applications to IoT-based infrastructure, I work across the
+          full stack to turn ideas into working products.
+        </p>
+        <p class="about-text">
+          I built <strong>TapToTravel</strong> from scratch — designing NFC hardware circuits,
+          writing Flutter apps, deploying Cloud Functions, and managing the entire
+          product lifecycle as a solo founder. MCA graduate from
+          <strong>AKTU Lucknow</strong>, with a foundation in AI, ML &amp; IoT.
         </p>
       </div>
       <div class="stat-grid reveal">
@@ -678,12 +824,12 @@
           <div class="stat-label">Years Building</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">20+</div>
-          <div class="stat-label">Skills</div>
+          <div class="stat-value">1</div>
+          <div class="stat-label">Live Startup</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">MCA</div>
-          <div class="stat-label">AKTU (Graduated)</div>
+          <div class="stat-label">AKTU Graduate</div>
         </div>
         <div class="stat-card">
           <div class="stat-value">📍</div>
@@ -853,10 +999,14 @@
     </div>
   </section>
 
-  <!-- ══════════════ FOOTER ══════════════ -->
   <footer class="site-footer">
     <div class="container">
-      <p>© 2024 Avinash Kumar · Built with ❤️ · <a href="https://avinashkumar.online">avinashkumar.online</a></p>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/avinash-kumar-4a555b231" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a href="https://github.com/Avinash88088" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GH</a>
+        <a href="mailto:hello@avinashkumar.online" aria-label="Email">✉</a>
+      </div>
+      <p>&copy; 2024–2026 Avinash Kumar · <a href="https://avinashkumar.online">avinashkumar.online</a></p>
     </div>
   </footer>
 

@@ -13,21 +13,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Avinash Kumar | Founder & Developer at TapToTravel",
-  description: "Official portfolio of Avinash Kumar, Founder and Lead Developer of TapToTravel. Specializing in smart mobility, IoT, Flutter, and Full-Stack development.",
-  keywords: "Avinash Kumar, TapToTravel, Founder TapToTravel, Avinash Kumar TapToTravel, Developer, IoT, Flutter Developer, Smart Mobility",
+  metadataBase: new URL("https://avinashkumar.online"),
+  title: "Avinash Kumar — Founder, TapToTravel | Builder of Smart Mobility Systems",
+  description: "Avinash Kumar is the Founder of TapToTravel — India's first NFC tap-to-board smart mobility platform. Full-stack builder working across Flutter, IoT hardware, AI, and cloud infrastructure.",
+  keywords: "Avinash Kumar, TapToTravel, Founder TapToTravel, Smart Mobility India, NFC, Flutter Developer, IoT Builder",
   openGraph: {
-    title: "Avinash Kumar | Founder & Tech Lead at TapToTravel",
-    description: "Welcome to my official digital space. Exploring the intersection of hardware, AI, and smart mobility at TapToTravel.",
+    title: "Avinash Kumar — Founder, TapToTravel",
+    description: "Full-stack builder designing real-world systems combining software, AI, and hardware. Founder of TapToTravel.",
     url: "https://avinashkumar.online",
     siteName: "Avinash Kumar",
     images: [{
-      url: "https://taptotravel.co.in/assets/img/hero-img.png",
-      width: 800,
-      height: 600,
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Avinash Kumar — Founder, TapToTravel",
     }],
     locale: "en_IN",
-    type: "website",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Avinash Kumar — Founder, TapToTravel",
+    description: "Building real-world systems combining software, AI, and hardware.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
