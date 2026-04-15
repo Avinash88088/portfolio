@@ -283,7 +283,7 @@
       width: 60%; height: 60%;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(46,204,113,0.15) 0%, transparent 70%);
       z-index: -1;
     }
     @keyframes hero-float {
@@ -301,6 +301,66 @@
       -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
       mask-image: linear-gradient(to top, transparent 0%, black 15%);
     }
+    /* Scroll Indicator (Point 3) */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.6;
+      animation: bounce 2s infinite;
+      z-index: 5;
+    }
+    .scroll-indicator .text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -10px); } 60% { transform: translate(-50%, -5px); } }
+
+    /* Trust Strip & Text Animations (Points 1 & 8) */
+    .hero-name { animation: fadeUp 0.8s ease backwards; animation-delay: 0.1s; }
+    .hero-desc { animation: fadeUp 0.8s ease backwards; animation-delay: 0.3s; }
+    .hero-buttons { animation: fadeUp 0.8s ease backwards; animation-delay: 0.5s; }
+    .hero-trust { animation: fadeUp 0.8s ease backwards; animation-delay: 0.7s; }
+    
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+    }
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .hero-trust .divider {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+    }
+
     /* Status badge - Monochrome Premium */
     .status-badge {
       display: inline-flex;
@@ -318,7 +378,7 @@
     }
     .status-dot {
       width: 8px; height: 8px;
-      background: #FFFFFF;
+      background: #2ECC71;
       border-radius: 50%;
       animation: pulse-dot 2s infinite;
     }
@@ -796,7 +856,7 @@
         <li><a href="#about" onclick="closeMenu()">About</a></li>
         <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
         <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-        <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Hire Me</a></li>
+        <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Collaborate</a></li>
       </ul>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
@@ -817,22 +877,34 @@
       <div class="hero-text">
         <div class="status-badge">
           <span class="status-dot"></span>
-          🚀 Building TapToTravel (Live)
+          🚀 Live Pilot Running · Gorakhpur
         </div>
         <br/><span class="hero-tag">Founder &amp; Builder</span>
         <h1 class="hero-name">Avinash Kumar</h1>
         <p class="hero-desc">
-          Building India’s first NFC-powered public transport system from scratch — turning everyday transit into smart, AI-driven infrastructure.
+          Building India’s first NFC-powered public transport system — transforming everyday transit into smart infrastructure.
         </p>
         <div class="hero-buttons">
           <a href="https://taptotravel.co.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             View TapToTravel →
           </a>
           <a href="#contact" class="btn btn-secondary">
-            Let's Build Together
+            Partner / Invest
           </a>
         </div>
+        
+        <div class="hero-trust">
+          <span>🚀 100+ rides tested</span>
+          <span class="divider"></span>
+          <span>📍 Pilot: Gorakhpur</span>
+          <span class="divider"></span>
+          <span>⚡ Real-time GPS + NFC</span>
+        </div>
       </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="text">↓ Scroll</span>
     </div>
   </section>
 
