@@ -11,7 +11,7 @@ export const portfolioData = {
   hero: {
     greeting: "Hey, I am",
     name: "Avinash Kumar.",
-    title: "Founder @ TapToTravel.",
+    title: "Founder & CEO @ TapToTravel.",
     subtitle:
       "I build technology ecosystems end-to-end — from NFC-based hardware circuits to intelligent cloud systems. Transforming smart mobility across India.",
     contactEmail: "hello@avinashkumar.online",
