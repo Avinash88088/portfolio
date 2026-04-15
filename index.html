@@ -255,51 +255,38 @@
       min-height: 100vh;
       padding-top: 100px;
       padding-bottom: 80px; 
-      display: flex; align-items: center; justify-content: flex-start; 
+      display: flex; align-items: center; justify-content: space-between; gap: 40px; 
     }
     .hero-text { 
-      flex: 0 0 60%; 
+      flex: 1; min-width: 0;
       max-width: 650px; 
       position: relative; z-index: 4; 
     }
     
-    /* Hero Photo - Magazine Style (Bottom Anchored) */
+    /* Hero Photo - Professional Classic Frame */
     .hero-photo-wrap {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 38vw; /* Less dominating */
-      max-width: 600px;
+      flex-shrink: 0;
+      position: relative;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: radial-gradient(circle, rgba(255,255,255,0.03), transparent);
+      box-shadow: 0 0 80px rgba(46, 204, 113, 0.15), 0 30px 60px rgba(0,0,0,0.5);
       z-index: 3;
-      pointer-events: none;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      animation: hero-float 6s ease-in-out infinite;
+      overflow: hidden;
+      animation: hero-fade 1s ease-out backwards;
+      animation-delay: 0.2s;
     }
-    .hero-photo-wrap::before {
-      content: '';
-      position: absolute;
-      width: 60%; height: 60%;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(46,204,113,0.15) 0%, transparent 70%);
-      z-index: -1;
-    }
-    @keyframes hero-float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+    @keyframes hero-fade {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
     }
     .hero-photo {
       width: 100%;
-      height: auto;
-      max-height: 92vh;
-      object-fit: contain;
-      object-position: bottom right;
-      filter: drop-shadow(-15px 15px 40px rgba(0,0,0,0.8));
-      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
-      mask-image: linear-gradient(to top, transparent 0%, black 15%);
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
     }
     /* Scroll Indicator (Point 3) */
     .scroll-indicator {
@@ -800,16 +787,15 @@
        RESPONSIVE
     ═══════════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .hero-content { flex-direction: column; text-align: center; justify-content: flex-start; padding-top: 140px; }
+      .hero-content { flex-direction: column-reverse; text-align: center; justify-content: center; gap: 40px; padding-top: 140px; }
       .hero-text { flex: none; width: 100%; max-width: 100%; z-index: 10; }
       .hero-photo-wrap { 
-        width: 100%; max-width: 100%; height: auto; max-height: 60vh;
-        left: 0; right: 0;
-        justify-content: center;
+        width: 320px; height: 320px;
+        margin-left: auto; margin-right: auto;
       }
-      .hero-photo { object-position: bottom center; max-height: 60vh; }
       .hero-watermark { font-size: 28vw; top: 35%; }
       .hero-buttons { justify-content: center; }
+      .hero-trust { justify-content: center; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .project-featured { padding: 32px; }
     }
@@ -831,9 +817,8 @@
       .hamburger { display: flex; }
       .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .stat-card { padding: 20px 16px; }
-      .hero-content { padding-top: 100px; padding-bottom: 20px; flex-direction: column; }
-      .hero-photo-wrap { height: auto; max-height: 50vh; }
-      .hero-photo { max-height: 50vh; }
+      .hero-content { padding-top: 100px; padding-bottom: 20px; flex-direction: column-reverse; gap: 30px; }
+      .hero-photo-wrap { width: 260px; height: 260px; }
       .hero-watermark { font-size: 32vw; top: 30%; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn { justify-content: center; }
@@ -868,10 +853,6 @@
   <section id="hero">
     <div class="hero-watermark">AVINASH</div>
     <div class="grid-overlay"></div>
-    
-    <div class="hero-photo-wrap">
-      <img src="/avinash-photo-dark.png?v=5" alt="Avinash Kumar — Founder" class="hero-photo" loading="eager" />
-    </div>
 
     <div class="container hero-content">
       <div class="hero-text">
@@ -900,6 +881,10 @@
           <span class="divider"></span>
           <span>⚡ Real-time GPS + NFC</span>
         </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <img src="/avinash-photo-dark.png?v=5" alt="Avinash Kumar — Founder" class="hero-photo" loading="eager" />
       </div>
     </div>
 
