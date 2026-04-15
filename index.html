@@ -255,16 +255,20 @@
     .hero-photo-wrap {
       flex-shrink: 0;
       position: relative;
-    }
-    .hero-photo {
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
       border: 4px solid rgba(46, 204, 113, 0.4);
       box-shadow: 0 0 40px rgba(46, 204, 113, 0.2), 0 0 80px rgba(46, 204, 113, 0.1), 0 20px 60px rgba(0,0,0,0.3);
       animation: photo-glow 4s ease-in-out infinite alternate;
+      overflow: hidden;
+    }
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transform: scale(1.15); /* Zoom to remove white borders */
     }
     @keyframes photo-glow {
       0% { box-shadow: 0 0 30px rgba(46, 204, 113, 0.15), 0 0 60px rgba(46, 204, 113, 0.08), 0 20px 60px rgba(0,0,0,0.3); }
@@ -708,7 +712,7 @@
     ═══════════════════════════════════════════════════ */
     @media (max-width: 900px) {
       .hero-content { flex-direction: column-reverse; text-align: center; gap: 40px; }
-      .hero-photo { width: 200px; height: 200px; }
+      .hero-photo-wrap { width: 200px; height: 200px; }
       .hero-buttons { justify-content: center; }
       .hero-desc { margin-left: auto; margin-right: auto; }
       .status-badge { margin-left: auto; margin-right: auto; }
@@ -735,7 +739,7 @@
       .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .stat-card { padding: 20px 16px; }
       .hero-content { padding-top: 100px; padding-bottom: 60px; flex-direction: column-reverse; }
-      .hero-photo { width: 160px; height: 160px; }
+      .hero-photo-wrap { width: 160px; height: 160px; }
       .hero-buttons { flex-direction: column; }
       .btn { justify-content: center; }
       .hero-name { letter-spacing: -0.5px; }
