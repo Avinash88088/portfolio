@@ -181,16 +181,26 @@
       transition: color var(--transition);
       position: relative;
     }
-    .nav-links a::after {
+    .nav-links a.nav-cta {
+      background: var(--white);
+      color: #000000;
+      padding: 8px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      margin-left: 10px;
+      transition: all var(--transition);
+    }
+    .nav-links a.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,255,255,0.15); }
+    .nav-links a:not(.nav-cta)::after {
       content: '';
       position: absolute;
       bottom: -4px; left: 0;
       width: 0; height: 2px;
-      background: var(--green-accent);
+      background: var(--white);
       transition: width var(--transition);
     }
     .nav-links a:hover { color: var(--white); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:not(.nav-cta):hover::after { width: 100%; }
 
     .hamburger {
       display: none;
@@ -222,11 +232,11 @@
     }
     .hero-watermark {
       position: absolute;
-      top: 50%; left: 50%;
+      top: 40%; left: 45%;
       transform: translate(-50%, -50%);
       font-size: 22vw;
       font-weight: 800;
-      color: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.04);
       line-height: 1;
       pointer-events: none;
       white-space: nowrap;
@@ -258,13 +268,28 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 50vw;
-      max-width: 850px;
+      width: 38vw; /* Less dominating */
+      max-width: 600px;
       z-index: 3;
       pointer-events: none;
       display: flex;
       align-items: flex-end;
       justify-content: flex-end;
+      animation: hero-float 6s ease-in-out infinite;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      width: 60%; height: 60%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      z-index: -1;
+    }
+    @keyframes hero-float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
     .hero-photo {
       width: 100%;
@@ -272,6 +297,7 @@
       max-height: 92vh;
       object-fit: contain;
       object-position: bottom right;
+      filter: drop-shadow(-15px 15px 40px rgba(0,0,0,0.8));
       -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
       mask-image: linear-gradient(to top, transparent 0%, black 15%);
     }
@@ -323,9 +349,9 @@
       margin-bottom: 20px;
     }
     .hero-desc {
-      max-width: 560px;
-      color: rgba(255,255,255,0.6);
-      font-size: 1rem;
+      max-width: 580px;
+      color: rgba(255,255,255,0.8);
+      font-size: 1.15rem;
       line-height: 1.8;
       margin-bottom: 36px;
     }
@@ -344,13 +370,14 @@
       transition: all var(--transition);
     }
     .btn-primary {
-      background: var(--green-accent);
-      color: var(--green-dark);
+      background: var(--white);
+      color: #000000;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.1);
     }
     .btn-primary:hover {
-      background: var(--white);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(46, 204, 113, 0.3);
+      background: #e5e5e5;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
     }
     .btn-secondary {
       background: transparent;
@@ -769,7 +796,7 @@
         <li><a href="#about" onclick="closeMenu()">About</a></li>
         <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
         <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
-        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Hire Me</a></li>
       </ul>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
@@ -790,19 +817,19 @@
       <div class="hero-text">
         <div class="status-badge">
           <span class="status-dot"></span>
-          Building in public
+          🚀 Building TapToTravel (Live)
         </div>
         <br/><span class="hero-tag">Founder &amp; Builder</span>
         <h1 class="hero-name">Avinash Kumar</h1>
         <p class="hero-desc">
-          I design and build real-world systems combining software, AI, and hardware — focused on solving mobility and infrastructure problems.
+          Building India’s first NFC-powered public transport system from scratch — turning everyday transit into smart, AI-driven infrastructure.
         </p>
         <div class="hero-buttons">
           <a href="https://taptotravel.co.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             View TapToTravel →
           </a>
           <a href="#contact" class="btn btn-secondary">
-            Get In Touch
+            Let's Build Together
           </a>
         </div>
       </div>
