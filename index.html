@@ -257,23 +257,23 @@
     .hero-photo-wrap {
       position: absolute;
       bottom: 0;
-      right: 2%; /* Flushed to right */
-      width: 45%;
-      height: 85vh; /* Spans 85% of screen height */
+      right: 0;
+      width: 50vw;
+      max-width: 850px;
       z-index: 3;
       pointer-events: none;
       display: flex;
-      align-items: flex-end; /* Anchor to bottom */
+      align-items: flex-end;
       justify-content: flex-end;
     }
     .hero-photo {
       width: 100%;
-      height: 100%;
-      max-height: 100%;
+      height: auto;
+      max-height: 92vh;
       object-fit: contain;
       object-position: bottom right;
-      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%);
-      mask-image: linear-gradient(to top, transparent 0%, black 20%);
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+      mask-image: linear-gradient(to top, transparent 0%, black 15%);
     }
     /* Status badge - Monochrome Premium */
     .status-badge {
@@ -713,16 +713,14 @@
        RESPONSIVE
     ═══════════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .hero-content { flex-direction: column; text-align: center; justify-content: center; }
+      .hero-content { flex-direction: column; text-align: center; justify-content: flex-start; padding-top: 140px; }
       .hero-text { flex: none; width: 100%; max-width: 100%; z-index: 10; }
       .hero-photo-wrap { 
-        position: relative; 
-        width: 100%; height: 50vh; 
-        right: 0; 
-        justify-content: center; 
-        margin-top: -60px; /* Pull text and photo closer */
+        width: 100%; max-width: 100%; height: auto; max-height: 60vh;
+        left: 0; right: 0;
+        justify-content: center;
       }
-      .hero-photo { object-position: bottom center; }
+      .hero-photo { object-position: bottom center; max-height: 60vh; }
       .hero-watermark { font-size: 28vw; top: 35%; }
       .hero-buttons { justify-content: center; }
       .contact-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -746,8 +744,9 @@
       .hamburger { display: flex; }
       .stat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
       .stat-card { padding: 20px 16px; }
-      .hero-content { padding-top: 120px; padding-bottom: 20px; flex-direction: column; }
-      .hero-photo-wrap { height: 40vh; margin-top: -40px; }
+      .hero-content { padding-top: 100px; padding-bottom: 20px; flex-direction: column; }
+      .hero-photo-wrap { height: auto; max-height: 50vh; }
+      .hero-photo { max-height: 50vh; }
       .hero-watermark { font-size: 32vw; top: 30%; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn { justify-content: center; }
@@ -782,6 +781,11 @@
   <section id="hero">
     <div class="hero-watermark">AVINASH</div>
     <div class="grid-overlay"></div>
+    
+    <div class="hero-photo-wrap">
+      <img src="/avinash-photo-dark.png?v=5" alt="Avinash Kumar — Founder" class="hero-photo" loading="eager" />
+    </div>
+
     <div class="container hero-content">
       <div class="hero-text">
         <div class="status-badge">
@@ -801,9 +805,6 @@
             Get In Touch
           </a>
         </div>
-      </div>
-      <div class="hero-photo-wrap">
-        <img src="/avinash-photo-dark.png?v=4" alt="Avinash Kumar — Founder" class="hero-photo" loading="eager" />
       </div>
     </div>
   </section>
