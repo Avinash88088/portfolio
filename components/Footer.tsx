@@ -1,15 +1,31 @@
-import React from 'react';
-import { portfolioData } from '@/data/portfolioData';
+import React from "react";
+import { portfolioData } from "@/data/portfolioData";
+import s from "./Footer.module.css";
 
 export default function Footer() {
+  const { socials, footer } = portfolioData;
+
   return (
-    <footer id="contact" style={{ padding: '4rem 0 2rem 0', textAlign: 'center', color: '#64748b', fontSize: '0.9rem' }}>
-      <div style={{ marginBottom: '2rem' }}>
-        <a href={`mailto:${portfolioData.hero.contactEmail}`} className="button-outline" style={{ display: 'inline-block' }}>
-          Say Hello
-        </a>
+    <footer className={s.footer}>
+      <div className="container">
+        <div className={s.socials}>
+          {socials.map((soc) => (
+            <a
+              key={soc.label}
+              href={soc.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={soc.label}
+              className={s.socialLink}
+            >
+              {soc.short}
+            </a>
+          ))}
+        </div>
+        <p className={s.copy}>
+          © {new Date().getFullYear()} {footer.text}
+        </p>
       </div>
-      <p>© {new Date().getFullYear()} {portfolioData.footer.text}</p>
     </footer>
   );
 }

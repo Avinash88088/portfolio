@@ -1,18 +1,30 @@
-import React from 'react';
-import { portfolioData } from '@/data/portfolioData';
+import React from "react";
+import { portfolioData } from "@/data/portfolioData";
+import s from "./Sections.module.css";
 
 export default function SkillsSection() {
   const { skills } = portfolioData;
 
   return (
-    <section id="skills" className="section animate-in delay-3">
-      <h2 className="title" style={{ fontSize: '2.5rem' }}>Core Stack</h2>
-      <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))' }}>
-        {skills.map((tech, index) => (
-          <div key={index} className="card glass" style={{ textAlign: 'center', padding: '1.5rem' }}>
-            <h4 style={{ color: 'var(--foreground)' }}>{tech}</h4>
-          </div>
-        ))}
+    <section id="skills" className="section">
+      <div className="container">
+        <div className="reveal">
+          <span className="eyebrow">Skills</span>
+          <h2 className="section-title">My toolbox</h2>
+        </div>
+
+        <div className={`${s.skillsGrid} reveal`} style={{ marginTop: 36 }}>
+          {skills.map((group) => (
+            <div key={group.group} className={`card ${s.skillCard}`}>
+              <div className={s.skillGroup}>{group.group}</div>
+              <div className={s.chips}>
+                {group.items.map((item) => (
+                  <span key={item} className={s.chip}>{item}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

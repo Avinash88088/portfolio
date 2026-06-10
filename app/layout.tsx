@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { portfolioData, SITE_URL } from "@/data/portfolioData";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,48 +13,151 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const { person, company, seo } = portfolioData;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://avinashkumar.online"),
-  title: "Avinash Kumar — Founder, TapToTravel | Builder of Smart Mobility Systems",
-  description: "Avinash Kumar is the Founder of TapToTravel — India's first NFC tap-to-board smart mobility platform. Full-stack builder working across Flutter, IoT hardware, AI, and cloud infrastructure.",
-  keywords: "Avinash Kumar, TapToTravel, Founder TapToTravel, Smart Mobility India, NFC, Flutter Developer, IoT Builder",
+  metadataBase: new URL(SITE_URL),
+  title: seo.title,
+  description: seo.description,
+  keywords: seo.keywords,
+  authors: [{ name: person.name, url: SITE_URL }],
+  creator: person.name,
+  publisher: person.name,
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "Avinash Kumar — Founder, TapToTravel",
-    description: "Full-stack builder designing real-world systems combining software, AI, and hardware. Founder of TapToTravel.",
-    url: "https://avinashkumar.online",
-    siteName: "Avinash Kumar",
-    images: [{
-      url: "/og-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Avinash Kumar — Founder, TapToTravel",
-    }],
+    title: `${person.name} — Founder, ${company.name}`,
+    description: seo.description,
+    url: SITE_URL,
+    siteName: person.name,
     locale: "en_IN",
     type: "profile",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${person.name} — Founder, ${company.name}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Avinash Kumar — Founder, TapToTravel",
-    description: "Building real-world systems combining software, AI, and hardware.",
+    title: `${person.name} — Founder, ${company.name}`,
+    description: seo.description,
     images: ["/og-image.png"],
   },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
-  robots: {
-    index: true,
-    follow: true,
+  manifest: "/site.webmanifest",
+  verification: {
+    // TODO: Replace with your real Google Search Console verification string
+    google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  const personJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    givenName: person.givenName,
+    familyName: person.familyName,
+    alternateName: person.aliases,
+    jobTitle: "Founder",
+    url: SITE_URL,
+    image: person.image,
+    email: person.email,
+    description: seo.description,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Gorakhpur",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+    },
+    worksFor: {
+      "@type": "Organization",
+      name: company.name,
+      url: company.url,
+      description: company.description,
+      founder: {
+        "@type": "Person",
+        name: person.name,
+        url: SITE_URL,
+      },
+    },
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: portfolioData.alumniOf,
+    },
+    sameAs: portfolioData.socials
+      .filter((s) => s.href.startsWith("http"))
+      .map((s) => s.href),
+    knowsAbout: portfolioData.knowsAbout,
+  });
+
+  const orgJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: company.name,
+    url: company.url,
+    logo: `${SITE_URL}/og-image.png`,
+    description: company.description,
+    founder: {
+      "@type": "Person",
+      name: person.name,
+      url: SITE_URL,
+    },
+    sameAs: [company.url],
+  });
+
+  const profilePageJson = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url: SITE_URL,
+    name: seo.title,
+    description: seo.description,
+    mainEntity: {
+      "@type": "Person",
+      name: person.name,
+      url: SITE_URL,
+      image: person.image,
+    },
+  });
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: personJson }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: orgJson }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: profilePageJson }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

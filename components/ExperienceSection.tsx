@@ -1,22 +1,28 @@
-import React from 'react';
-import { portfolioData } from '@/data/portfolioData';
+import React from "react";
+import { portfolioData } from "@/data/portfolioData";
+import s from "./Sections.module.css";
 
 export default function ExperienceSection() {
   const { experience } = portfolioData;
 
   return (
-    <section id="experience" className="section animate-in delay-2">
-      <h2 className="title" style={{ fontSize: '2.5rem' }}>Experience</h2>
-      <div className="grid">
-        {experience.map((job, index) => (
-          <div key={index} className="card glass">
-            <h3>{job.role}</h3>
-            <p style={{ fontWeight: 'bold', color: 'var(--foreground)', marginBottom: '0.5rem' }}>
-              {job.company} <span style={{ fontWeight: 'normal', fontSize: '0.9em', color: '#94a3b8', marginLeft: '8px' }}>({job.timeframe})</span>
-            </p>
-            <p>{job.description}</p>
-          </div>
-        ))}
+    <section id="experience" className="section">
+      <div className="container">
+        <div className="reveal">
+          <span className="eyebrow">Experience</span>
+          <h2 className="section-title">The journey so far</h2>
+        </div>
+
+        <div className={`${s.timeline} reveal`} style={{ marginTop: 36 }}>
+          {experience.map((job, i) => (
+            <div key={i} className={`card ${s.tItem}`}>
+              <div className={s.tRole}>{job.role}</div>
+              <div className={s.tCompany}>{job.company}</div>
+              <div className={s.tMeta}>{job.timeframe}</div>
+              <p className={s.tDesc}>{job.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

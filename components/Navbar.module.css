@@ -1,0 +1,103 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: padding var(--ease), background var(--ease), box-shadow var(--ease);
+}
+.scrolled {
+  padding: 10px 0;
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 1px 0 var(--border-soft);
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.links a {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--ease);
+}
+.links a:hover { color: var(--text); }
+.links a:not(.cta)::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -6px;
+  width: 0; height: 2px;
+  background: var(--accent);
+  transition: width var(--ease);
+}
+.links a:not(.cta):hover::after { width: 100%; }
+.activeLink { color: var(--text) !important; }
+.activeLink::after { width: 100% !important; }
+
+.cta {
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--text);
+  color: #04140d !important;
+  font-weight: 600;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.18);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+.burger span {
+  width: 26px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: var(--ease);
+}
+.burgerActive span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.burgerActive span:nth-child(2) { opacity: 0; }
+.burgerActive span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 760px) {
+  .burger { display: flex; }
+  .links {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 78%; max-width: 320px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    padding: 0 40px;
+    background: rgba(12, 14, 13, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid var(--border);
+    transition: right var(--ease);
+  }
+  .open { right: 0; }
+  .links a { font-size: 1.15rem; }
+}
